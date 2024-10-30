@@ -1,0 +1,194 @@
+.css-cht-bttn{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transform: scale(1)
+}
+
+
+.menu-place:checked ~ .css-cht-bttn,.css-cht-bttn.left{
+  right: initial;
+  left: 30px;
+}
+
+.css-chat-item, .menu-open-button {
+  background: #00aa88;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+  /* margin-left: -40px; */
+  /* top: -10px; */
+}
+
+.css-chat-item svg {
+  padding: 3px 0 0 3px;
+}
+
+.menu-open, .menu-place {
+  display: none;
+}
+.menu00 {
+  font-size: 20px;
+}
+
+.css-chat-item:hover {
+  background: white;
+  color: #25d366;
+}
+
+.menu-open-button {
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 400ms;
+  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+  cursor: pointer;
+}
+
+.menu-open-button:hover {
+  transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+}
+
+.menu-open:checked + .menu-open-button {
+  transition-timing-function: linear;
+  transition-duration: 200ms;
+  transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+}
+
+.menu-place:not(:checked) ~ nav .css-chat-item.go-right {display: none;}
+.menu-place:checked ~ nav .css-chat-item.go-left {display: none;}
+
+.menu-open:checked ~ .css-chat-item {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.menu-open:checked ~ .css-chat-item:nth-child(3) {transition-duration: 190ms;transform: translate3d(0,-55px,  0);}
+.menu-open:checked ~ .css-chat-item:nth-child(4) {transition-duration: 290ms;transform: translate3d(0,-115px,  0);}
+.menu-open:checked ~ .css-chat-item:nth-child(5) {transition-duration: 390ms;transform: translate3d(0,-175px,  0);}
+.menu-open:checked ~ .css-chat-item:nth-child(6) {transition-duration: 490ms;transform: translate3d(0,-235px,  0);}
+.menu-open:checked ~ .css-chat-item.go-left {transition-duration: 190ms;transform: translate3d(-55px,0,  0);}
+.menu-open:checked ~ .css-chat-item.go-right {transition-duration: 190ms;transform: translate3d(55px,0,  0);}
+
+.chat-bubble {
+  cursor: pointer;
+  position: relative;
+  top: -15px;
+left: 4px;
+}
+.bubble {
+  transform-origin: 50%;
+  transition: transform 500ms cubic-bezier(.65,.05,.36,1);
+}
+.line {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.75;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 500ms ease-in-out;
+}
+.menu-open:checked ~ label .bubble {
+  transform: translateX(-11px) translateY(15px) rotate(-45deg);
+}
+.line1 {
+  stroke-dasharray: 42 90;
+  stroke-dashoffset: -23;
+}
+.line2 {
+  stroke-dasharray: 42 100;
+  stroke-dashoffset: -17;
+}
+.pen {
+  fill: #ffffff;
+  stroke: none;
+  transform-origin: 50%;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.menu-open:checked ~ label .line1 {
+  stroke-dashoffset: -62;
+  stroke-dasharray: 26 90;
+}
+.menu-open:checked ~ label .line2 {
+  stroke-dashoffset: -57;
+  stroke-dasharray: 26 100;
+}
+.menu-open:checked ~ label .pen {
+  transform: scale(0);
+}
+
+
+
+.tooltip {
+/*   position: relative;
+  background-color: #ffaffc;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 15px;
+  text-align: center; */
+}
+
+.tooltip::before,.tooltip::after {
+  background-color: #fff;
+  display: none;
+  position: absolute;
+  z-index: 999;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  border-radius: 10px;
+  color: #b254ff;
+  padding: 10px 15px;
+  text-align: center;
+  line-height: 1em;
+}
+
+.tooltip::before {
+  content: ' ';
+  width: 15px;
+  height: 15px;
+}
+
+.tooltip:hover::after {
+  display: block;
+  width: max-content;
+  /* height: 1em; */
+}
+
+.tooltip:hover::before {
+  display: block;
+}
+
+.tooltip::before {
+  top: 50%;
+}
+
+.tooltip::after {
+  top: 0.4em;
+}
+.menu-place:checked ~ nav .tooltip::after {
+  right: 0;
+  transform: translateX(calc(100% + 10px));
+}
+
+.menu-place:checked ~ nav .tooltip::before {
+  right: 0;
+  transform: translate(calc(100% + 5px), -50%) rotate(45deg);
+}
+
+.menu-place:not(:checked) ~ nav .tooltip::after {
+  left: 0;
+  transform: translateX(calc(-100% - 10px));
+}
+
+.menu-place:not(:checked) ~ nav .tooltip::before {
+  left: 0;
+  transform: translate(calc(-100% - 5px), -50%) rotate(45deg);
+}
+
